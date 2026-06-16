@@ -1,0 +1,135 @@
+{
+  "version": "v2-1",
+  "version_id": "2cbda638-f76d-4202-89f6-3e30851095f0",
+  "parent": "v1-1",
+  "parent_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+  "timestamp": "2026-04-01T18:50:41.075071+00:00",
+  "summary": "[핵심 기능 추가: 상단 3개 캔버스 내 '목표(타겟) 도형' 렌더링]\nUI 레이아웃은 완벽해. 하지만 기획서의 가장 핵심인 **1번 로직(학습 목표 제시)**이 누락되었어. 현재 상단의 점선 박스 3개 안에 '1, 2, 3'이라는 숫자만 있는데, 숫자를 모두 지우고 그 자리에 사용자가 똑같이 만들어야 할 **'최종 교집합(정답) 모양'**을 고정된 형태로 렌더링해.\n\n[1. 타겟 캔버스(점선 박스) 내부 도형 렌더링 규칙]\n사용자가 하단 팔레트의 도형들을 캔버스로 끌고 와서 이 목표 모양과 일치시키도록 유도해야 해. 각 점선 박스 중앙에 아래 색상과 형태의 타겟 도형을 렌더링해 (고정된 그래픽 요소로, 드래그 불가능하게 처리).\n\n1번 박스 (파랑 네모 + 노랑 세모의 교집합):\n\n색상: 초록색 (Green)\n\n모양: 네모와 세모가 겹쳤을 때 나오는 기하학적 형태 (예: 부채꼴이나 잘린 다각형 형태).\n\n2번 박스 (노랑 세모 + 빨강 동그라미의 교집합):\n\n색상: 주황색 (Orange)\n\n모양: 세모와 동그라미가 겹쳤을 때 나오는 기하학적 형태.\n\n3번 박스 (파랑 네모 + 빨강 동그라미의 교집합):\n\n색상: 보라색 (Purple)\n\n모양: 네모와 동그라미가 겹쳤을 때 나오는 기하학적 형태.\n\n[2. 타겟 도형의 시각적 처리]\n\n타겟 도형들은 사용자가 만들어낼 정답의 '가이드라인' 역할을 하므로, 약간의 투명도(opacity: 0.7)를 주거나 은은하게 렌더링해서, 사용자가 끌고 온 도형을 그 위에 겹쳐보기 편하게 만들어줘.\n\n이 목표 도형들 없이는 게임의 정답 체크 로직이 성립할 수 없으니, 반드시 HTML5 Canvas API나 SVG를 이용해 3개의 점선 박스 중앙에 각각 명확히 그려내.",
+  "changes": [
+    {
+      "name": "main.js",
+      "path": "main.js",
+      "type": "Change"
+    },
+    {
+      "name": "data.json",
+      "path": "data.json",
+      "type": "Change"
+    },
+    {
+      "name": "app.ts",
+      "path": "app.ts",
+      "type": "Change"
+    }
+  ],
+  "no_changes": [
+    {
+      "path": "assets/thumbnail.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/snap_sound.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_256.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_128.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_64.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/icon.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/correct_chime.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_512.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/bg_music.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    }
+  ],
+  "file_index": {
+    "app.ts": {
+      "hash": "8e9bf5d8942ae28a84344e2101e340cc0eeffb6860cf1980c4be229c03dad5ab",
+      "size": 44350,
+      "mtime": 1775069436.297
+    },
+    "main.js": {
+      "hash": "867d04e2c66777ea7ef2874dc1baf4399fea9cb3981fca9559759b6af8386972",
+      "size": 264437,
+      "mtime": 1775069441.051
+    },
+    "data.json": {
+      "hash": "b805cceffe4a106ed55b96a2e30c3928a61777eaeaa0457c83c30609af9e574c",
+      "size": 5199,
+      "mtime": 1775069396.11
+    },
+    "assets/icon.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/bg_music.mp3": {
+      "hash": "e9265ef10b356b03f3174266c0c213eb3cd53deb7ceaaa11d2fcd16530527213",
+      "size": 1884332,
+      "mtime": 1775068444.315
+    },
+    "assets/snap_sound.mp3": {
+      "hash": "4e3fbed5c8163e64490c43aacd962b9872b14fcb7bb3a6c793a9b7d7bf341764",
+      "size": 19578,
+      "mtime": 1775068444.197
+    },
+    "assets/thumbnail.webp": {
+      "hash": "574b084aacb120f466bc39b0b597b5bfb93b11ef48d191ded7cf4ff7933c7578",
+      "size": 9088,
+      "mtime": 1774936080.0
+    },
+    "assets/correct_chime.mp3": {
+      "hash": "b46cde5381509e71efba00cfde5d584785762086133bc94cd8d19507d278c3a0",
+      "size": 6498,
+      "mtime": 1775068444.219
+    },
+    "assets/thumbnail_64.webp": {
+      "hash": "314d918a5b0461d2fc5d867ee20a5ff3942cc5e0fb4c2851915546af3c535225",
+      "size": 436,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_128.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_256.webp": {
+      "hash": "a7a5ddb7aa8cb96c36ff633e43920192687f5e9ff65fac92058fa142eecc2fec",
+      "size": 2080,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_512.webp": {
+      "hash": "3888d7b6b9c2cfb1ec1aa274e79e50d2649ea769c8cb069e51af40b94d26f447",
+      "size": 4290,
+      "mtime": 1774936080.0
+    }
+  },
+  "request_id": "11dce3a1-0e51-4e41-b5ce-17ec146f24d1"
+}

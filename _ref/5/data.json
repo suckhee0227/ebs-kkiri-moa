@@ -1,0 +1,252 @@
+{
+    "appData": {
+        "canvasWidth": 1024,
+        "canvasHeight": 700,
+        "dropZoneSize": 220,
+        "dropZoneGap": 40,
+        "dropZoneY": 150,
+        "dropZoneCornerRadius": 20,
+        "paletteY": 560,
+        "shapeSize": 80,
+        "snapThreshold": 10,
+        "snapAngleThreshold": 12,
+        "rotationHandleDistance": 80,
+        "rotationHandleRadius": 14,
+        "dropZoneBorderColors": [
+            "#8BC34A",
+            "#42A5F5",
+            "#B39DDB"
+        ],
+        "puzzles": [
+            {
+                "id": 1,
+                "targetShapes": [
+                    {
+                        "type": "rectangle",
+                        "color": "#3D6FD9",
+                        "x": -24,
+                        "y": 20,
+                        "rotation": 61,
+                        "scale": 1
+                    },
+                    {
+                        "type": "circle",
+                        "color": "#E04040",
+                        "x": 9,
+                        "y": -1,
+                        "rotation": 0,
+                        "scale": 1
+                    }
+                ],
+                "resultDescription": "파란 네모와 빨간 동그라미가 겹쳐 반원이 나타남"
+            },
+            {
+                "id": 2,
+                "targetShapes": [
+                    {
+                        "type": "triangle",
+                        "color": "#F09030",
+                        "x": -1,
+                        "y": 8,
+                        "rotation": 0,
+                        "scale": 1
+                    },
+                    {
+                        "type": "rectangle",
+                        "color": "#3D6FD9",
+                        "x": -2,
+                        "y": -15,
+                        "rotation": 44,
+                        "scale": 1
+                    }
+                ],
+                "resultDescription": "주황 세모와 파란 네모가 겹쳐 다이아몬드가 나타남"
+            },
+            {
+                "id": 3,
+                "targetShapes": [
+                    {
+                        "type": "triangle",
+                        "color": "#F09030",
+                        "x": 23,
+                        "y": -6,
+                        "rotation": 0,
+                        "scale": 1
+                    },
+                    {
+                        "type": "circle",
+                        "color": "#E04040",
+                        "x": -15,
+                        "y": 9,
+                        "rotation": 0,
+                        "scale": 1
+                    }
+                ],
+                "resultDescription": "주황 세모와 빨간 동그라미가 겹쳐 부채꼴이 나타남"
+            }
+        ],
+        "answerMap": [
+            {
+                "dropZoneIndex": 0,
+                "shapes": [
+                    {
+                        "type": "rectangle",
+                        "color": "#3D6FD9",
+                        "paletteIndex": 0
+                    },
+                    {
+                        "type": "circle",
+                        "color": "#E04040",
+                        "paletteIndex": 2
+                    }
+                ],
+                "targetOffsets": [
+                    {
+                        "x": -24,
+                        "y": 20,
+                        "rotation": 60,
+                        "allowedRotations": [60, 151, 240, -32]
+                    },
+                    {
+                        "x": 9,
+                        "y": -1,
+                        "rotation": 0,
+                        "anyRotation": true
+                    }
+                ]
+            },
+            {
+                "dropZoneIndex": 1,
+                "shapes": [
+                    {
+                        "type": "triangle",
+                        "color": "#F09030",
+                        "paletteIndex": 1
+                    },
+                    {
+                        "type": "rectangle",
+                        "color": "#3D6FD9",
+                        "paletteIndex": 0
+                    }
+                ],
+                "targetOffsets": [
+                    {
+                        "x": -1,
+                        "y": 8,
+                        "rotation": 0,
+                        "allowedRotations": [0, 120, 240]
+                    },
+                    {
+                        "x": -2,
+                        "y": -15,
+                        "rotation": 45,
+                        "allowedRotations": [45, 130, 225, -45]
+                    }
+                ]
+            },
+            {
+                "dropZoneIndex": 2,
+                "shapes": [
+                    {
+                        "type": "triangle",
+                        "color": "#F09030",
+                        "paletteIndex": 1
+                    },
+                    {
+                        "type": "circle",
+                        "color": "#E04040",
+                        "paletteIndex": 2
+                    }
+                ],
+                "targetOffsets": [
+                    {
+                        "x": 23,
+                        "y": -6,
+                        "rotation": 0,
+                        "allowedRotations": [0, 120, 240]
+                    },
+                    {
+                        "x": -15,
+                        "y": 9,
+                        "rotation": 0,
+                        "anyRotation": true
+                    }
+                ]
+            }
+        ],
+        "nearHintThreshold": 70,
+        "nearHintAngleThreshold": 45
+    },
+    "textData": {
+        "title": "B1-3 1. 전체와 부분 - 겹쳐진 모양",
+        "subtitle": "셀로판지 색상 혼합 교육",
+        "mission": "아래 3개의 도형 중 2개를 골라 겹쳐서 알맞은 모양을 만들어 보세요.",
+        "checkAnswer": "정답 확인",
+        "defaultBubble": "도형을 빙글빙<br>글 돌려볼까<br>요?",
+        "correctBubble": "우와! 정확하게<br>찾아냈어요!",
+        "wrongBubble": "다른 도형을<br>겹쳐볼까요?",
+        "titleScreen": "겹쳐진 모양",
+        "titleInstruction": "화면을 터치하여 시작하세요",
+        "startButton": "시작하기",
+        "instructionTitle": "🎨 사용 방법",
+        "instruction1": "아래 도형을 드래그하면 복제되어 캔버스로 이동해요",
+        "instruction2": "도형을 선택하면 회전 핸들이 나타나 자유롭게 돌릴 수 있어요",
+        "instruction3": "두 도형을 겹치면 셀로판지처럼 색이 섞여요!",
+        "instructionStart": "화면을 터치하여 학습을 시작하세요",
+        "resetButton": "다시하기",
+        "gameOverTitle": "🎊 축하합니다!",
+        "gameOverMessage": "모든 도형을 올바르게 겹쳐서\n셀로판지 색상 혼합을 완성했어요!",
+        "gameOverRestart": "🔄 다시 도전하기"
+    },
+    "assetList": {
+        "images": [
+            {
+                "id": "character",
+                "file_path": "character.png",
+                "width": 0,
+                "height": 0,
+                "isBackgroundImage": false,
+                "isNewAsset": false,
+                "description": "Guide character image"
+            }
+        ],
+        "sounds": [
+            {
+                "id": "pickup",
+                "file_path": "assets/pickup.mp3",
+                "duration_seconds": 0.5,
+                "volume": 0.6,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "Sound when picking up a shape"
+            },
+            {
+                "id": "place",
+                "file_path": "assets/place.mp3",
+                "duration_seconds": 0.5,
+                "volume": 0.7,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "Snap sound when a shape locks into correct position"
+            },
+            {
+                "id": "correct_chime",
+                "file_path": "assets/correct_chime.mp3",
+                "duration_seconds": 1.5,
+                "volume": 0.7,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "A cheerful, bright chime sound for correct answer celebration, suitable for children's education app"
+            },
+            {
+                "id": "bg_music",
+                "file_path": "assets/bg_music.mp3",
+                "duration_seconds": 60,
+                "volume": 0.3,
+                "isBackgroundMusic": true,
+                "isNewAsset": false,
+                "description": "Gentle, playful background music suitable for a children's educational app, light piano and xylophone melody"
+            }
+        ]
+    }
+}

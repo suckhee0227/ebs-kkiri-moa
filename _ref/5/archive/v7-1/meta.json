@@ -1,0 +1,135 @@
+{
+  "version": "v7-1",
+  "version_id": "e53ce266-de6f-4b5e-a882-fd1412e6cc04",
+  "parent": "v6-1",
+  "parent_id": "da172617-34be-4acf-9881-ff0273bb08f7",
+  "timestamp": "2026-04-02T14:13:05.698783+00:00",
+  "summary": "이거 정답 처리가 안되고 겹쳐졌을때 색상이 조합 되는게 조금 아쉬워 드래그 해서 스냅할 때도 아쉬워",
+  "changes": [
+    {
+      "name": "main.js",
+      "path": "main.js",
+      "type": "Change"
+    },
+    {
+      "name": "data.json",
+      "path": "data.json",
+      "type": "Change"
+    },
+    {
+      "name": "app.ts",
+      "path": "app.ts",
+      "type": "Change"
+    }
+  ],
+  "no_changes": [
+    {
+      "path": "assets/thumbnail.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/snap_sound.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_256.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_128.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_64.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/icon.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/correct_chime.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_512.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/bg_music.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    }
+  ],
+  "file_index": {
+    "app.ts": {
+      "hash": "00c2f6a81021168d5b54bc892f0f48d5eea637941dfb082eea72ff34d5e3401c",
+      "size": 47758,
+      "mtime": 1775139181.217
+    },
+    "main.js": {
+      "hash": "786bc64e35a7e8818d722e167bf666a77e179281209fde780ffc75539a570222",
+      "size": 267134,
+      "mtime": 1775139185.675
+    },
+    "data.json": {
+      "hash": "df6e10117cb26fb825e8f689e710fbff801b0f2e7183cc2fc8a8d53b5514a446",
+      "size": 7664,
+      "mtime": 1775139140.891
+    },
+    "assets/icon.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/bg_music.mp3": {
+      "hash": "e9265ef10b356b03f3174266c0c213eb3cd53deb7ceaaa11d2fcd16530527213",
+      "size": 1884332,
+      "mtime": 1775068444.315
+    },
+    "assets/snap_sound.mp3": {
+      "hash": "4e3fbed5c8163e64490c43aacd962b9872b14fcb7bb3a6c793a9b7d7bf341764",
+      "size": 19578,
+      "mtime": 1775068444.197
+    },
+    "assets/thumbnail.webp": {
+      "hash": "574b084aacb120f466bc39b0b597b5bfb93b11ef48d191ded7cf4ff7933c7578",
+      "size": 9088,
+      "mtime": 1774936080.0
+    },
+    "assets/correct_chime.mp3": {
+      "hash": "b46cde5381509e71efba00cfde5d584785762086133bc94cd8d19507d278c3a0",
+      "size": 6498,
+      "mtime": 1775068444.219
+    },
+    "assets/thumbnail_64.webp": {
+      "hash": "314d918a5b0461d2fc5d867ee20a5ff3942cc5e0fb4c2851915546af3c535225",
+      "size": 436,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_128.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_256.webp": {
+      "hash": "a7a5ddb7aa8cb96c36ff633e43920192687f5e9ff65fac92058fa142eecc2fec",
+      "size": 2080,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_512.webp": {
+      "hash": "3888d7b6b9c2cfb1ec1aa274e79e50d2649ea769c8cb069e51af40b94d26f447",
+      "size": 4290,
+      "mtime": 1774936080.0
+    }
+  },
+  "request_id": "0fefd225-2af8-4c39-9c5b-057ede67f426"
+}

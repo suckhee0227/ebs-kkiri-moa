@@ -1,0 +1,135 @@
+{
+  "version": "v4-1",
+  "version_id": "b9094054-3b4b-4569-a90b-45c6cf59d3f8",
+  "parent": "v3-1",
+  "parent_id": "c1a5c733-ad41-49fb-8f48-229a5bc117b4",
+  "timestamp": "2026-04-01T19:06:47.767496+00:00",
+  "summary": "하단 패널에 도형 아래 텍스트 삭제해주세요.",
+  "changes": [
+    {
+      "name": "main.js",
+      "path": "main.js",
+      "type": "Change"
+    },
+    {
+      "name": "app.ts",
+      "path": "app.ts",
+      "type": "Change"
+    }
+  ],
+  "no_changes": [
+    {
+      "path": "data.json",
+      "last_version_id": "c1a5c733-ad41-49fb-8f48-229a5bc117b4",
+      "last_version": "v3-1"
+    },
+    {
+      "path": "assets/thumbnail.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/snap_sound.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_256.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_128.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_64.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/icon.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/correct_chime.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_512.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/bg_music.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    }
+  ],
+  "file_index": {
+    "app.ts": {
+      "hash": "b083977499beafd93ca5c29fd234b597d8638541a3cd73ad39479afae4c27cb9",
+      "size": 42423,
+      "mtime": 1775070403.257
+    },
+    "main.js": {
+      "hash": "09274ff0f883ace925fecca8e628ecb3761149bb1f1361bde351f7a8d1c68bdf",
+      "size": 261982,
+      "mtime": 1775070407.743
+    },
+    "data.json": {
+      "hash": "90e50de39504beb4dcff149e44eba09c931a0a69120f8e63ea014b61d201b8a2",
+      "size": 7517,
+      "mtime": 1775070319.364
+    },
+    "assets/icon.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/bg_music.mp3": {
+      "hash": "e9265ef10b356b03f3174266c0c213eb3cd53deb7ceaaa11d2fcd16530527213",
+      "size": 1884332,
+      "mtime": 1775068444.315
+    },
+    "assets/snap_sound.mp3": {
+      "hash": "4e3fbed5c8163e64490c43aacd962b9872b14fcb7bb3a6c793a9b7d7bf341764",
+      "size": 19578,
+      "mtime": 1775068444.197
+    },
+    "assets/thumbnail.webp": {
+      "hash": "574b084aacb120f466bc39b0b597b5bfb93b11ef48d191ded7cf4ff7933c7578",
+      "size": 9088,
+      "mtime": 1774936080.0
+    },
+    "assets/correct_chime.mp3": {
+      "hash": "b46cde5381509e71efba00cfde5d584785762086133bc94cd8d19507d278c3a0",
+      "size": 6498,
+      "mtime": 1775068444.219
+    },
+    "assets/thumbnail_64.webp": {
+      "hash": "314d918a5b0461d2fc5d867ee20a5ff3942cc5e0fb4c2851915546af3c535225",
+      "size": 436,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_128.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_256.webp": {
+      "hash": "a7a5ddb7aa8cb96c36ff633e43920192687f5e9ff65fac92058fa142eecc2fec",
+      "size": 2080,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_512.webp": {
+      "hash": "3888d7b6b9c2cfb1ec1aa274e79e50d2649ea769c8cb069e51af40b94d26f447",
+      "size": 4290,
+      "mtime": 1774936080.0
+    }
+  },
+  "request_id": "4f0f8b84-5589-4bd8-b925-2fd9ee9fa017"
+}

@@ -1,0 +1,183 @@
+{
+    "appData": {
+        "canvasWidth": 1024,
+        "canvasHeight": 700,
+        "headerHeight": 66,
+        "columnAreaY": 98,
+        "columnAreaHeight": 372,
+        "columnGap": 22,
+        "columnSideMargin": 40,
+        "guideGutter": 210,
+        "poolY": 486,
+        "poolHeight": 188,
+        "objectRadius": 40,
+        "colors": {
+            "red": "#E8503A",
+            "yellow": "#F4C430",
+            "green": "#4CAF50",
+            "blue": "#3E8FD0"
+        },
+        "sizes": {
+            "large": 1.0,
+            "medium": 0.7,
+            "small": 0.48
+        },
+        "gifts": [
+            { "id": 101, "size": "large",  "color": "red" },
+            { "id": 102, "size": "large",  "color": "yellow" },
+            { "id": 103, "size": "large",  "color": "green" },
+            { "id": 104, "size": "large",  "color": "blue" },
+            { "id": 105, "size": "medium", "color": "red" },
+            { "id": 106, "size": "medium", "color": "yellow" },
+            { "id": 107, "size": "medium", "color": "green" },
+            { "id": 108, "size": "medium", "color": "blue" },
+            { "id": 109, "size": "small",  "color": "red" },
+            { "id": 110, "size": "small",  "color": "yellow" },
+            { "id": 111, "size": "small",  "color": "green" },
+            { "id": 112, "size": "small",  "color": "blue" }
+        ],
+        "objects": [
+            { "id": 1,  "shape": "triangle", "color": "red" },
+            { "id": 2,  "shape": "triangle", "color": "yellow" },
+            { "id": 3,  "shape": "triangle", "color": "green" },
+            { "id": 4,  "shape": "triangle", "color": "blue" },
+            { "id": 5,  "shape": "square",   "color": "red" },
+            { "id": 6,  "shape": "square",   "color": "yellow" },
+            { "id": 7,  "shape": "square",   "color": "green" },
+            { "id": 8,  "shape": "square",   "color": "blue" },
+            { "id": 9,  "shape": "circle",   "color": "red" },
+            { "id": 10, "shape": "circle",   "color": "yellow" },
+            { "id": 11, "shape": "circle",   "color": "green" },
+            { "id": 12, "shape": "circle",   "color": "blue" },
+            { "id": 13, "shape": "star",     "color": "red" },
+            { "id": 14, "shape": "star",     "color": "yellow" },
+            { "id": 15, "shape": "star",     "color": "green" },
+            { "id": 16, "shape": "star",     "color": "blue" }
+        ],
+        "stages": [
+            {
+                "criterion": "shape",
+                "criterionLabel": "모양",
+                "instruction": "같은 모양끼리 가까이 모아요!",
+                "columns": [
+                    { "key": "triangle", "label": "세모",     "icon": "triangle" },
+                    { "key": "square",   "label": "네모",     "icon": "square" },
+                    { "key": "circle",   "label": "동그라미", "icon": "circle" },
+                    { "key": "star",     "label": "별",       "icon": "star" }
+                ]
+            },
+            {
+                "criterion": "color",
+                "criterionLabel": "색깔",
+                "instruction": "같은 색깔끼리 가까이 모아요!",
+                "columns": [
+                    { "key": "red",    "label": "빨강", "icon": "swatch" },
+                    { "key": "yellow", "label": "노랑", "icon": "swatch" },
+                    { "key": "green",  "label": "초록", "icon": "swatch" },
+                    { "key": "blue",   "label": "파랑", "icon": "swatch" }
+                ]
+            },
+            {
+                "criterion": "size",
+                "criterionLabel": "크기",
+                "instruction": "같은 크기 선물끼리 가까이 모아요!",
+                "columns": [
+                    { "key": "large",  "label": "별나라", "icon": "star",   "hint": "큰 선물" },
+                    { "key": "medium", "label": "꽃나라", "icon": "flower", "hint": "중간 선물" },
+                    { "key": "small",  "label": "물나라", "icon": "drop",   "hint": "작은 선물" }
+                ]
+            }
+        ]
+    },
+    "textData": {
+        "appTitle": "끼리끼리 모아",
+        "codeBadge": "분류",
+        "titleScreen": "끼리끼리 모아",
+        "titleSubtitle": "같은 것끼리 모으는 분류 놀이",
+        "titleInstruction": "화면을 터치하여 시작하세요",
+        "howtoTitle": "🧺 이렇게 해요",
+        "howto1": "흩어진 친구들을 자유롭게 끌어요",
+        "howto2": "같은 것끼리 가까이 모아 무리를 지어요",
+        "howto3": "끼리끼리 다 모으면 다음 단계로 넘어가요!",
+        "howtoStart": "화면을 터치하여 학습을 시작하세요",
+        "startButton": "시작하기",
+        "stagePrefix": "단계",
+        "defaultBubble": "같은 것끼리<br>가까이<br>모아 볼까요?",
+        "correctBubble": "딱 맞았어요!<br>잘했어요!",
+        "wrongBubble": "음... 다른<br>줄을<br>볼까요?",
+        "stageClearBubble": "와! 모두<br>모았어요!",
+        "stageClearTitle": "단계 완성!",
+        "gameOverTitle": "🎊 참 잘했어요!",
+        "gameOverMessage": "모양과 색깔과 크기로\n끼리끼리 모두 모았어요!",
+        "gameOverRestart": "🔄 다시 하기"
+    },
+    "assetList": {
+        "images": [
+            {
+                "id": "background",
+                "file_path": "assets/background.webp",
+                "width": 1024,
+                "height": 700,
+                "isBackgroundImage": true,
+                "isNewAsset": true,
+                "description": "EBS 수학이 야호 themed scene used as the app background"
+            },
+            {
+                "id": "character",
+                "file_path": "octopus.png",
+                "width": 560,
+                "height": 467,
+                "isBackgroundImage": false,
+                "isNewAsset": true,
+                "description": "Octopus guide character (문어) — the math-show host"
+            },
+            {
+                "id": "speech_bubble",
+                "file_path": "speech_bubble.png",
+                "width": 0,
+                "height": 0,
+                "isBackgroundImage": false,
+                "isNewAsset": false,
+                "description": "Speech bubble image for the guide character"
+            }
+        ],
+        "sounds": [
+            {
+                "id": "pickup",
+                "file_path": "assets/pickup.mp3",
+                "duration_seconds": 0.5,
+                "volume": 0.6,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "Sound when picking up an object"
+            },
+            {
+                "id": "place",
+                "file_path": "assets/place.mp3",
+                "duration_seconds": 0.5,
+                "volume": 0.7,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "Snap sound when an object is dropped into the correct column"
+            },
+            {
+                "id": "correct_chime",
+                "file_path": "assets/correct_chime.mp3",
+                "duration_seconds": 1.5,
+                "volume": 0.7,
+                "isBackgroundMusic": false,
+                "isNewAsset": false,
+                "description": "Cheerful chime when a sorting stage is completed"
+            },
+            {
+                "id": "bg_music",
+                "file_path": "assets/bg_music.mp3",
+                "duration_seconds": 60,
+                "volume": 0.26,
+                "isBackgroundMusic": true,
+                "isNewAsset": false,
+                "description": "Gentle, calm background music for a children's educational app"
+            }
+        ]
+    }
+}

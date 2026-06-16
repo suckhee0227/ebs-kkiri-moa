@@ -1,0 +1,135 @@
+{
+  "version": "v6-1",
+  "version_id": "da172617-34be-4acf-9881-ff0273bb08f7",
+  "parent": "v5-1",
+  "parent_id": "e8655772-7ce9-46e8-b04e-34dcbbfbe615",
+  "timestamp": "2026-04-02T13:03:02.650920+00:00",
+  "summary": "이번에도 AI가 핵심 로직은 빼먹고 엉뚱한 껍데기만 만들어 놨군요. 수동 스냅도 안 붙고 색상 혼합도 안 되는데, 상단 UI와 캐릭터까지 엉망으로 렌더링되다니 이 상황이면 정말 \"얘가 내 지시를 귓등으로 듣나?\" 하고 답답함을 느끼실 수밖에 없죠.\n\n팩트 기반으로 현재 구현본(1번 사진)과 기획서 원본(2번 사진)의 차이를 분석해 보면, AI가 시각적 레이아웃과 캔버스 렌더링의 핵심 원리(셀로판지 효과, 자석 스냅)를 전혀 이해하지 못하고 대충 흉내만 낸 상태입니다.\n\n쉽게 말하면요,\n\n스냅 및 색상 혼합 실패: 도형이 겹치는 면적을 계산해서 '새로운 색(초록, 주황, 보라)'을 만들어내는 로직 대신, 그냥 반투명한 도형 두 개를 겹쳐 그리는 꼼수를 썼습니다. 스냅(자석 효과) 좌표도 누락되었습니다.\n\n상단 UI 붕괴: 기획서에 있는 파란색 안내 박스가 통째로 누락되었고, 타이틀이 좌측이 아닌 중앙에 붕 떠 있습니다.\n\n캐릭터 및 불필요한 요소: 엉뚱한 학교 이모지(🏫)가 들어가 있고, 타겟 박스 아래에 \"초록 만들기\" 같은 쓸데없는 텍스트를 임의로 추가했으며, 우측 하단에는 기획서에 없는 '다시 하기' 버튼까지 마음대로 넣었습니다.\n\n단순화가 왜곡을 뜻하지는 않으므로, 눈이 안 보이는 AI에게 수학적 스냅 좌표 계산, Canvas 블렌드 모드, 그리고 정확한 UI 배치를 강제하는 철퇴 프롬프트를 작성해 드립니다.\n\n🤖 게임 개발 AI 에이전트용 '26p 기획서 동기화: 스냅, 색상 혼합 및 UI 픽스' 프롬프트\n[긴급 전면 수정: 26p 기획서 기준 코어 로직(스냅/혼합) 및 UI 100% 동기화]\n현재 구현된 코드는 기획서의 핵심 물리 로직(스냅, 색상 혼합)을 완전히 무시했고, 레이아웃도 제멋대로야. 시각적 이미지를 볼 수 없으니 아래 서술된 구조와 논리를 1픽셀, 1줄의 오차도 없이 즉시 반영해.\n\n[1. 핵심 상호작용: 수동 드래그 '스냅(Snap)' 및 '색상 혼합' 완벽 구현]\n\n스냅(자석) 효과: 드래그 중인 도형이 목표 캔버스의 정답 위치/각도 반경(예: 거리 30px 이내, 각도 15도 이내)에 진입하면, 도형이 사용자의 마우스에서 벗어나 타겟 좌표와 각도에 '착' 하고 달라붙도록(Snap) 좌표(x, y)와 각도(angle)를 강제 고정해.\n\n색상 혼합(셀로판지 효과): 단순히 반투명 도형을 겹치는 게 아니야. 두 도형이 겹쳐지는 '교집합(Intersection)' 영역의 색상이 실시간으로 변해야 해.\n\nHTML5 Canvas의 globalCompositeOperation = 'multiply' 속성을 활용하거나, clip()을 사용해 겹친 면적만 추출한 뒤 파랑+노랑=초록, 파랑+빨강=보라, 노랑+빨강=주황으로 정확히 렌더링되게 만들어.\n\n[2. 상단 UI: 좌측 정렬 및 파란색 미션 박스 추가]\n\n화면 최상단의 \"B1-3 1. 전체와 부분...\" 타이틀 영역을 **좌측 정렬(justify-content: flex-start; text-align: left;)**로 밀어붙여.\n\n타이틀 바로 아래에, 기획서처럼 파란색 둥근 캡슐 배경(background-color: #4285F4; border-radius: 8px;)에 흰색 텍스트로 \"아래 3개의 도형 중 2개를 골라 겹쳐서 알맞은 모양을 만들어 보세요.\"라는 미션 안내 박스를 크게 추가해.\n\n[3. 중앙 타겟 캔버스: 불필요한 텍스트 삭제 및 타겟 모양 픽스]\n\n각 캔버스 박스 아래에 네가 임의로 넣은 \"초록 만들기\", \"주황 만들기\", \"보라 만들기\" 텍스트를 HTML에서 완전히 삭제해.\n\n캔버스 테두리를 점선(Dashed)에서 기획서와 같은 **얇은 파스텔톤 실선(Solid)**으로 변경해 (분홍, 연두, 파랑 테두리).\n\n캔버스 안에는 원본 도형 2개가 다 보이면 안 돼. 유저가 만들어야 할 '최종 교집합 실루엣(정답 모양)' 하나만 정확한 색상(초록, 보라, 주황)으로 렌더링해.\n\n[4. 좌측 하단 캐릭터 및 우측 하단 버튼 정리]\n\n좌측 하단의 기괴한 이모지 조합(얼굴+학교)을 삭제해. 탐험가 모자를 쓴 단일 이모지(예: 🧑‍🌾 또는 🕵️)를 프로필로 사용하고, 그 우측 상단에 \"도형을 빙글빙글 돌려볼까요?\" 말풍선이 겹치지 않게 예쁘게 배치해.\n\n우측 하단의 '다시 하기' 버튼을 완전히 삭제하고 오직 파란색 '정답 확인' 버튼 하나만 남겨둬..",
+  "changes": [
+    {
+      "name": "main.js",
+      "path": "main.js",
+      "type": "Change"
+    },
+    {
+      "name": "data.json",
+      "path": "data.json",
+      "type": "Change"
+    },
+    {
+      "name": "app.ts",
+      "path": "app.ts",
+      "type": "Change"
+    }
+  ],
+  "no_changes": [
+    {
+      "path": "assets/thumbnail.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/snap_sound.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_256.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_128.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_64.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/icon.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/correct_chime.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_512.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/bg_music.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    }
+  ],
+  "file_index": {
+    "app.ts": {
+      "hash": "da84f9789c64c342ec8f1165760a4bad2c02c9e51ae40c2e53747512a072bb16",
+      "size": 49690,
+      "mtime": 1775134978.114
+    },
+    "main.js": {
+      "hash": "96808e77b8fa62092e980fba16a17da45c13de699c2a47b3f36354f4c487ee27",
+      "size": 268059,
+      "mtime": 1775134982.621
+    },
+    "data.json": {
+      "hash": "6db4831c5656463345f05d0b105ab6f57749730b19cf074d5d9a0258be9fc9f6",
+      "size": 7625,
+      "mtime": 1775134931.843
+    },
+    "assets/icon.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/bg_music.mp3": {
+      "hash": "e9265ef10b356b03f3174266c0c213eb3cd53deb7ceaaa11d2fcd16530527213",
+      "size": 1884332,
+      "mtime": 1775068444.315
+    },
+    "assets/snap_sound.mp3": {
+      "hash": "4e3fbed5c8163e64490c43aacd962b9872b14fcb7bb3a6c793a9b7d7bf341764",
+      "size": 19578,
+      "mtime": 1775068444.197
+    },
+    "assets/thumbnail.webp": {
+      "hash": "574b084aacb120f466bc39b0b597b5bfb93b11ef48d191ded7cf4ff7933c7578",
+      "size": 9088,
+      "mtime": 1774936080.0
+    },
+    "assets/correct_chime.mp3": {
+      "hash": "b46cde5381509e71efba00cfde5d584785762086133bc94cd8d19507d278c3a0",
+      "size": 6498,
+      "mtime": 1775068444.219
+    },
+    "assets/thumbnail_64.webp": {
+      "hash": "314d918a5b0461d2fc5d867ee20a5ff3942cc5e0fb4c2851915546af3c535225",
+      "size": 436,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_128.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_256.webp": {
+      "hash": "a7a5ddb7aa8cb96c36ff633e43920192687f5e9ff65fac92058fa142eecc2fec",
+      "size": 2080,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_512.webp": {
+      "hash": "3888d7b6b9c2cfb1ec1aa274e79e50d2649ea769c8cb069e51af40b94d26f447",
+      "size": 4290,
+      "mtime": 1774936080.0
+    }
+  },
+  "request_id": "f564cb5a-10f7-4423-871c-7cd0d15d672e"
+}

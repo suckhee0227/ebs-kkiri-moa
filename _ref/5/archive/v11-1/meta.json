@@ -1,0 +1,135 @@
+{
+  "version": "v11-1",
+  "version_id": "e4866173-d2c5-451f-a1cf-663fdc16308c",
+  "parent": "v10-1",
+  "parent_id": "563f7113-73c0-4381-b38b-4b22d6624546",
+  "timestamp": "2026-04-03T07:44:44.008927+00:00",
+  "summary": "[긴급 코드 디버깅: 스냅 시 각도(Angle) 자동 변환 완벽 차단 및 조건 강화]\n내가 분명히 자동 회전을 없애라고 했는데, 아직도 도형이 근처에 가면 알아서 회전하며 스냅되는 치명적인 버그가 남아 있어. 네가 짠 Snap 관련 함수 로직에 문제가 있는 것이 확실하니 아래 지시대로 코드를 완전히 뜯어고쳐.\n\n[1. 스냅 함수 내부의 '각도(Angle) 할당' 코드 완전 삭제]\n\n도형이 타겟에 자석처럼 달라붙는 함수(예: snapToTarget, checkDrop 등) 내부를 샅샅이 뒤져.\n\n해당 함수 안에서 조작 중인 도형의 각도(rotation 또는 angle)를 정답 타겟의 각도로 강제로 맞추는(Overwrite) 대입 연산 코드가 있다면 단 1줄도 남김없이 완전히 삭제해. > * 스냅이 일어날 때는 오직 위치(x, y) 좌표만 타겟의 위치로 이동시켜야 해.\n\n[2. 각도 조건이 충족되지 않으면 스냅(자석 효과) 원천 금지]\n\n사용자가 회전 핸들을 직접 조작해서 정답 각도(대칭 포함, 오차 범위 내)에 미리 맞춰두지 않았다면, 위치가 아무리 타겟과 가까워져도 절대 위치 스냅(자석 효과)이 발동해서는 안 돼.\n\nif (거리 오차 충족 && 각도 오차 충족) { 위치 스냅 발동; 정답 처리; } 의 논리 구조로 판정문의 조건을 더욱 엄격하게 강화해.\n\n유저가 각도를 틀리게 맞춘 상태로 다가가면, 자석처럼 끌어당기지 말고 오직 '근접 테두리 힌트' 효과만 줘야 해.\n\n[3. 각도 변수 조작 권한의 완전한 격리]\n\n도형의 회전 각도 변수는 시스템이 알아서 계산하는 것이 아니야. 오직 사용자가 회전 조절점(핸들)을 마우스/터치로 드래그할 때만 업데이트되도록 이벤트 리스너를 철저히 분리해.",
+  "changes": [
+    {
+      "name": "main.js",
+      "path": "main.js",
+      "type": "Change"
+    },
+    {
+      "name": "app.ts",
+      "path": "app.ts",
+      "type": "Change"
+    }
+  ],
+  "no_changes": [
+    {
+      "path": "data.json",
+      "last_version_id": "8994a13c-0c49-47b4-a915-b8e50b27b5d9",
+      "last_version": "v9-2"
+    },
+    {
+      "path": "assets/thumbnail.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/snap_sound.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_256.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_128.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_64.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/icon.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/correct_chime.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/thumbnail_512.webp",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    },
+    {
+      "path": "assets/bg_music.mp3",
+      "last_version_id": "6522a7be-a999-4629-b49e-5ab0d40a6ea1",
+      "last_version": "v1-1"
+    }
+  ],
+  "file_index": {
+    "app.ts": {
+      "hash": "6a77d086f32da9f589679046a8da48b74aad4f64ba044b7806707079af260b6e",
+      "size": 62054,
+      "mtime": 1775202278.042
+    },
+    "main.js": {
+      "hash": "4d88e9eed599618ee824f80d491f87a86f1b29e4c47790c88e00225baea1b85f",
+      "size": 306185,
+      "mtime": 1775202283.984
+    },
+    "data.json": {
+      "hash": "61c62e5381d3fa3ccd0c3ada4a004879061a41202029ffb849a8a60a98e5b526",
+      "size": 7958,
+      "mtime": 1775186990.298
+    },
+    "assets/icon.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/bg_music.mp3": {
+      "hash": "e9265ef10b356b03f3174266c0c213eb3cd53deb7ceaaa11d2fcd16530527213",
+      "size": 1884332,
+      "mtime": 1775068444.315
+    },
+    "assets/snap_sound.mp3": {
+      "hash": "4e3fbed5c8163e64490c43aacd962b9872b14fcb7bb3a6c793a9b7d7bf341764",
+      "size": 19578,
+      "mtime": 1775068444.197
+    },
+    "assets/thumbnail.webp": {
+      "hash": "574b084aacb120f466bc39b0b597b5bfb93b11ef48d191ded7cf4ff7933c7578",
+      "size": 9088,
+      "mtime": 1774936080.0
+    },
+    "assets/correct_chime.mp3": {
+      "hash": "b46cde5381509e71efba00cfde5d584785762086133bc94cd8d19507d278c3a0",
+      "size": 6498,
+      "mtime": 1775068444.219
+    },
+    "assets/thumbnail_64.webp": {
+      "hash": "314d918a5b0461d2fc5d867ee20a5ff3942cc5e0fb4c2851915546af3c535225",
+      "size": 436,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_128.webp": {
+      "hash": "45f0ec6f62092921d350bd7c7a705929e5049426ebd9f3eae03077f5b6e3477a",
+      "size": 1008,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_256.webp": {
+      "hash": "a7a5ddb7aa8cb96c36ff633e43920192687f5e9ff65fac92058fa142eecc2fec",
+      "size": 2080,
+      "mtime": 1774936080.0
+    },
+    "assets/thumbnail_512.webp": {
+      "hash": "3888d7b6b9c2cfb1ec1aa274e79e50d2649ea769c8cb069e51af40b94d26f447",
+      "size": 4290,
+      "mtime": 1774936080.0
+    }
+  },
+  "request_id": "ae24cd61-6ad8-476d-ad24-8772bb06f72d"
+}
